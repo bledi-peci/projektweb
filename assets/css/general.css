@@ -98,6 +98,20 @@ a {
   font-family: "Exo Light";
   line-height: 27.2px;
 }
+.login-page {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+.login-title {
+  font-size: 24px;
+  color: #000;
+  font-family: "Exo Light";
+  line-height: 27.2px;
+  margin-bottom: 50px;
+}
 .section-intro {
   padding-inline: 5%;
   display: flex;
@@ -302,12 +316,40 @@ a {
   text-align: center;
   margin-bottom: 5%;
 }
+.sign-up-div {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form ul {
+  display: flex;
+  flex-direction: column;
+}
+.form label {
+  width: 50%;
+}
+.form input {
+  width: 50%;
+}
+.login-button {
+  padding: 6px 20px;
+  border: none;
+  background-color: #252d34;
+  font-size: 16px;
+  color: #fff;
+  width: fit-content%;
+}
 form {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5%;
+  row-gap: 10px;
   flex-wrap: wrap;
-  row-gap: 50px;
 }
 input {
   width: 47.5%;
