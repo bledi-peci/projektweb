@@ -1,10 +1,10 @@
 <?php
-include 'db.php'; // Your database connection file
+include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password']; // Normally you would hash this
-    $role = 'user'; // Assuming you have a role field in your form
+    $password = $_POST['password']; //hashed ne te ardhmen
+    $role = 'user'; 
     $email = $_POST['emailadress'];
     $fullName = $_POST['emrimbiemri'];
     $gender = $_POST['gender'];
@@ -59,5 +59,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    <!-- <script src="signup.js"></script> -->
+    <script src="signup.js"></script>
 <?php include 'footer.php'?>
