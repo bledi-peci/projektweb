@@ -17,22 +17,31 @@
     with the earthy scent of pine, a fragrance that blends seamlessly with the distant crackle.
   </p>
   <div class="products-single">
-    <div class="product-single">
-      <img src="/assets/uploads/tent1.webp" alt="" />
-      <a href="/product1.html" class="product-title">Product 1</a>
-    </div>
-    <div class="product-single">
-      <img src="/assets/uploads/tent2.jpeg" alt="" />
-      <a href="/product2.html" class="product-title">Product 2</a>
-    </div>
-    <div class="product-single">
-      <img src="/assets/uploads/tent3.jpg" alt="" />
-      <a href="/product3.html" class="product-title">Product 3</a>
-    </div>
-    <div class="product-single">
-      <img src="/assets/uploads/camp-gear.jpg" alt="" />
-      <a href="/product4.html" class="product-title">Product 4</a>
-    </div>
+    <?php
+    include 'db.php';
 
-  </div>
-<?php include 'footer.php'?>
+    try {
+        $sql = "SELECT p.id, p.name, p.description, p.image_url, p.created_at, u.username 
+                FROM products p 
+                JOIN users u ON p.created_by = u.id";
+        $stmt = $pdo->query($sql);
+
+        if ($stmt->rowCount() > 0) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<div class='product-single'>";
+                echo "<img src='" . htmlspecialchars($row["image_url"]) . "' alt='" . htmlspecialchars($row["name"]) . "' />";
+                echo "<a href='product_detail.php?id=" . $row["id"] . "' class='product-title'>" . htmlspecialchars($row["name"]) . "</a>";
+                echo "<p>Created by: " . htmlspecialchars($row["username"]) . " on " . htmlspecialchars($row["created_at"]) . "</p>";
+                echo "</div>";
+            }
+        } else {
+            echo "0 products";
+        }
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    ?>
+</div>
+
+<?php include 'footer.php'; ?>

@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-// Include your database connection file here
-include 'db.php'; // Adjust the path as needed
+include 'db.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password']; // Password is used as-is, not recommended for production
+    $password = $_POST['password']; 
 
     $sql = "SELECT * FROM users WHERE username = ?";
     $stmt = $pdo->prepare($sql);
@@ -14,16 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $stmt->fetch();
 
     if ($user && $user['password'] === $password) {
-        // Credentials are correct
+      
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        // You can add more session variables as needed
+        
 
         echo "Login successful. Welcome, " . htmlspecialchars($user['username']);
-        // Redirect to a protected page or dashboard
         header("Location: home.php");
     } else {
-        // Credentials are incorrect
         echo "Invalid username or password";
     }
 }
