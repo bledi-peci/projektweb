@@ -1,25 +1,35 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-include 'db.php'; 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+require_once 'db.php';
+require_once 'user.php';
+
+$db = new Database();
+$user = new User($db);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password']; 
+    $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$username]);
-    $user = $stmt->fetch();
+    $authenticatedUser = $user->authenticateUser($username, $password);
 
-    if ($user && $user['password'] === $password) {
-      
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        
+    if ($authenticatedUser) {
+        $_SESSION['user_id'] = $authenticatedUser['id'];
+        $_SESSION['username'] = $authenticatedUser['username'];
+        $_SESSION['role'] = $authenticatedUser['role'];
 
-        echo "Login successful. Welcome, " . htmlspecialchars($user['username']);
-        header("Location: home.php");
+        if ($_SESSION['role'] == 'admin') {
+            header("Location: admin_dashboard.php");
+            exit();
+        } else {
+            header("Location: home.php");
+            exit();
+        }
     } else {
         echo "Invalid username or password";
     }
@@ -27,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <?php include 'header.php' ?>
-    <script src="validoFormen.js" defer></script>
-    <div id="forma">
+<script src="validoFormen.js" defer></script>
+<div id="forma">
     <div class="login-page">
         <p class="login-title">Login Form</p>
         <form action="login.php" method="post">

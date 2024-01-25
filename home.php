@@ -1,4 +1,21 @@
-<?php include 'header.php' ?>
+<?php
+session_start();
+include 'header.php';
+include 'db.php';
+
+$db = new Database();
+$pdo = $db->getPDO();
+
+try {
+    $sql = "SELECT * FROM products ORDER BY created_at DESC LIMIT 4";
+    $stmt = $pdo->query($sql);
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    exit;
+}
+?>
+
   <div class="landing-home">
     <img src="./assets/uploads/hero-image2.jpg" class="home-landing-image" alt="" />
     <div class="landing-text">
@@ -17,33 +34,19 @@
     </div>
   </div>
   <p class="products-title">Our Best Seller Products</p>
-  <div class="projects-home">
-
-    <div class="project">
-      <img class="project-img" src="./assets/uploads/tent1.webp" alt="" />
-      <a href="./product1.html" class="project-title">
-        Product 1 <img src="./assets/uploads/black-arrow-right.svg" alt="" />
-      </a>
+  <div class="slider">
+  <div class="slide-a">
+      <?php foreach ($products as $product): ?>
+        <div style="background-image: url('<?php echo htmlspecialchars($product['image_url']); ?>')">
+          <span class="title"><?php echo htmlspecialchars($product['name']); ?></span>
+        </div>
+      <?php endforeach; ?>
     </div>
-    <div class="project">
-      <img class="project-img" src="./assets/uploads/tent2.jpeg" alt="" />
-      <a href="./product2.html" class="project-title">
-        Product 2 <img src="./assets/uploads/black-arrow-right.svg" alt="" />
-      </a>
-    </div>
-    <div class="project">
-      <img class="project-img" src="./assets/uploads/tent3.jpg" alt="" />
-      <a href="./product3.html" class="project-title">
-        Product 3 <img src="./assets/uploads/black-arrow-right.svg" alt="" />
-      </a>
-    </div>
-    <div class="project">
-      <img class="project-img" src="./assets/uploads/camp-gear.jpg" alt="" />
-      <a href="./product4.html" class="project-title">
-        Product 4 <img src="./assets/uploads/black-arrow-right.svg" alt="" />
-      </a>
-    </div>
+    <span class="icon-arrow_back" id="prev"></span>
+    <span class="icon-arrow_forward" id="next"></span>
   </div>
+
+
   <div class="details-home">
     <div class="details-text">
       <h3 class="details-header">
@@ -68,4 +71,55 @@
     </div>
     <img src="./assets/uploads/woods.jpg" alt="" class="details-image" />
   </div>
+
+<script>
+let arrowIconLeft = `<svg height="50px" id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 512 512" width="50px" color="#fff" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256"/>
+</svg>`;
+let slides = document.querySelectorAll('.slide-ana div');
+let slideSayisi = slides.length;
+
+
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
+prev.innerHTML = arrowIconLeft;
+next.innerHTML = arrowIconLeft;
+next.querySelector('svg').style.transform = 'rotate(180deg)';
+
+
+for (let index = 0; index < slides.length; index++) {
+    const element = slides[index];
+    element.style.transform = "translateX("+100*(index)+"%)";
+}
+let loop = 0 + 1000*slideSayisi;
+
+function goNext(){
+    loop++;
+            for (let index = 0; index < slides.length; index++) {
+                const element = slides[index];
+                element.style.transform = "translateX("+100*(index-loop%slideSayisi)+"%)";
+            }
+}
+
+function goPrev(){
+    loop--;
+            for (let index = 0; index < slides.length; index++) {
+                const element = slides[index];
+                element.style.transform = "translateX("+100*(index-loop%slideSayisi)+"%)";
+            }
+}
+
+next.addEventListener('click',goNext);
+prev.addEventListener('click',goPrev);
+document.addEventListener('keydown',function(e){
+    if(e.code === 'ArrowRight'){
+        goNext();
+    }else if(e.code === 'ArrowLeft'){
+        goPrev();
+    }
+});
+
+
+
+</script>
 <?php include 'footer.php' ?>

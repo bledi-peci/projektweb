@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2024 at 03:09 PM
+-- Generation Time: Jan 25, 2024 at 12:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -79,10 +79,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image_url`, `price`, `created_by`, `created_at`) VALUES
-(7, 'Tent 1', 'Introducing the \"VentureRise Expedition Tent\": Your Gateway to\r\n        Nature\'s Embrace Embark on a journey into the great outdoors with our\r\n        cutting-edge VentureRise Expedition Tent—a pinnacle of innovation and\r\n        comfort designed for the modern explorer. Crafted with precision and\r\n        passion, this tent is more than just a shelter; it\'s a portal to\r\n        unforgettable experiences under the open sky. Durable Design: Built to\r\n        withstand the rigors of nature, the VentureRise Expedition Tent\r\n        features a rugged yet lightweight frame constructed from high-quality\r\n        aluminum alloy. The tear-resistant, waterproof fabric ensures that you\r\n        stay dry and protected in unpredictable weather conditions.', '/assets/uploads/tent1.webp', NULL, 129, '2024-01-23 13:52:14'),
 (8, 'Tent 2', 'Spacious Interior: Experience the perfect balance between coziness and\r\n        ample space. The interior of the tent is roomy enough to comfortably\r\n        accommodate your sleeping gear while providing sufficient headroom,\r\n        allowing you to move freely and enjoy your time indoors. Ventilation\r\n        Mastery: Our tent is equipped with strategically placed ventilation\r\n        panels and mesh windows to enhance airflow and minimize condensation.\r\n        Say goodbye to stuffiness and hello to a refreshing, breathable\r\n        environment that connects you to the natural world.', '/assets/uploads/tent2.jpeg', NULL, 129, '2024-01-23 13:52:14'),
 (9, 'Tent 3', 'Easy Setup: No need to be a seasoned outdoorsman to pitch this tent.\r\n        The intuitive design and color-coded components make setup a breeze,\r\n        ensuring that you spend less time assembling and more time soaking in\r\n        the beauty of your surroundings. Adaptable for All Seasons: Whether\r\n        you\'re camping in the warm embrace of summer or braving the crisp\r\n        chill of winter, the VentureRise Expedition Tent is your reliable\r\n        companion. With its versatile design, it adapts to diverse climates,\r\n        keeping you comfortable year-round. Innovative Storage Solutions:\r\n        Thoughtfully integrated pockets and gear loft provide convenient\r\n        storage options, keeping your essentials organized and within arm\'s\r\n        reach. Now you can focus on your adventure without the hassle of\r\n        rummaging through your belongings.', '/assets/uploads/tent3.jpg', NULL, 129, '2024-01-23 13:52:14'),
-(10, 'Tent 4', 'Easy Setup: No need to be a seasoned outdoorsman to pitch this tent.\r\n        The intuitive design and color-coded components make setup a breeze,\r\n        ensuring that you spend less time assembling and more time soaking in\r\n        the beauty of your surroundings. Adaptable for All Seasons: Whether\r\n        you\'re camping in the warm embrace of summer or braving the crisp\r\n        chill of winter, the VentureRise Expedition Tent is your reliable\r\n        companion. With its versatile design, it adapts to diverse climates,\r\n        keeping you comfortable year-round. Innovative Storage Solutions:\r\n        Thoughtfully integrated pockets and gear loft provide convenient\r\n        storage options, keeping your essentials organized and within arm\'s\r\n        reach. Now you can focus on your adventure without the hassle of\r\n        rummaging through your belongings.', '/assets/uploads/camp-gear.jpg', NULL, 129, '2024-01-23 13:52:14');
+(10, 'Tent 4', 'Easy Setup: No need to be a seasoned outdoorsman to pitch this tent.\r\n        The intuitive design and color-coded components make setup a breeze,\r\n        ensuring that you spend less time assembling and more time soaking in\r\n        the beauty of your surroundings. Adaptable for All Seasons: Whether\r\n        you\'re camping in the warm embrace of summer or braving the crisp\r\n        chill of winter, the VentureRise Expedition Tent is your reliable\r\n        companion. With its versatile design, it adapts to diverse climates,\r\n        keeping you comfortable year-round. Innovative Storage Solutions:\r\n        Thoughtfully integrated pockets and gear loft provide convenient\r\n        storage options, keeping your essentials organized and within arm\'s\r\n        reach. Now you can focus on your adventure without the hassle of\r\n        rummaging through your belongings.', '/assets/uploads/camp-gear.jpg', NULL, 129, '2024-01-23 13:52:14'),
+(12, 'dadadaa', 'daldfkdhgejw', '/assets/uploads/hero-image.jpg', NULL, 130, '2024-01-24 22:35:06'),
+(14, 'kakau', 'dddd', 'assets/uploads/65b194033c14a.png', NULL, 130, '2024-01-24 22:49:39');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `created_at`, `full_name`, `gender`, `birthday`) VALUES
-(129, 'blerimhasani', 'blerim123', 'blerimhasani@gmail.com', 'user', '2024-01-10 16:48:01', 'Blerim Hasani', 'male', '2024-01-12');
+(129, 'blerimhasani', 'blerim123', 'blerimhasani@gmail.com', 'user', '2024-01-10 16:48:01', 'Blerim Hasani', 'male', '2024-01-12'),
+(130, 'daolinajeti', '$2y$10$xhTOeI8AHQSqviML3ZQFBebEK3sMpMbJypj4wdbXyS1dhYJ7y98gG', 'daolinajeti@gmail.com', 'admin', '2024-01-24 14:49:12', 'Daolin Ajeti', 'female', '2024-01-15'),
+(131, 'artonsopjani', '$2y$10$AAMg1LtCihB1OXbiBiJmDubKk5o/pewkJzQBd6OOVTcXOo4NwYX7i', 'artonsopjani@gmail.com', 'user', '2024-01-24 21:40:35', 'Arton Sopjani', 'male', '2024-01-16');
 
 --
 -- Indexes for dumped tables
@@ -159,13 +162,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- Constraints for dumped tables

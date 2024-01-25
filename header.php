@@ -1,3 +1,4 @@
+<?php session_start() ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,15 @@
   <div class="header-links">
     <a href="./products.php" class="header-link">Products</a>
     <a href="./contact.php" class="header-link">Contact Us</a>
-    <a class="header-link" href="./login.php">Login</a>
-    <a class="header-link" href="./signup.php">Sign Up</a>
+    <?php
+            if (isset($_SESSION['username'])) {
+                echo '<span class="header-link">' . htmlspecialchars($_SESSION['username']) . '</span>';
+                echo '<a class="header-link" href="logout.php">Logout</a>';
+                
+            } else {
+                echo '<a class="header-link" href="./login.php">Login</a>';
+                echo '<a class="header-link" href="./signup.php">Sign Up</a>';
+            }
+  ?>
   </div>
 </div>

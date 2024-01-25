@@ -1,20 +1,10 @@
-<?php include 'header.php'; ?>
-
 <?php
+session_start();
+include 'header.php';
+include 'db.php';
 
-$host = "localhost";
-$db_username = "root"; 
-$db_password = "";
-$db_name = "camping_trip";
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db_name", $db_username, $db_password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    exit;
-}
-
+$db = new Database();
+$pdo = $db->getPDO();
 
 $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -40,7 +30,6 @@ try {
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-
 ?>
 
 <?php include 'footer.php'; ?>
