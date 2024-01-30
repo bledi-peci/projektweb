@@ -631,3 +631,170 @@ th, td {
   max-width: 200px;
   overflow: auto;
 }
+
+.aboutus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.aboutus-header {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.aboutus-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.aboutus-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.aboutus-text {
+  text-align: left;
+  font-size: 1.1em;
+  color: #444;
+}
+
+.aboutus-text h2, .aboutus-text h3 {
+  color: #333;
+  margin: 10px 0;
+}
+
+.aboutus-text p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.admin-dashboard {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.admin-dashboard h1 {
+  color: #333;
+  font-family: "Exo Bold";
+  margin-bottom: 20px;
+}
+
+.admin-dashboard nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-dashboard nav ul li {
+  margin-bottom: 10px;
+}
+
+.admin-dashboard nav ul li a {
+  color: #555;
+  font-family: "Exo Medium";
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+  background-color: #f8f8f8;
+  color: #333;
+  font-family: "Exo Bold";
+}
+
+.admin-table td {
+  color: #555;
+  font-family: "Exo";
+}
+
+.admin-table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.admin-table a:hover {
+  text-decoration: underline;
+}
+
+.add-new-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Exo Medium";
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.add-new-btn:hover {
+  background-color: #218838;
+}
+
+@media screen and (max-width: 768px) {
+  .admin-dashboard nav ul li a {
+      font-size: 16px;
+  }
+
+  .admin-table th, .admin-table td {
+      font-size: 14px;
+  }
+}
+
+.admin-contact-inquiries {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.admin-contact-inquiries h2 {
+  color: #333;
+  font-family: "Exo Bold";
+  margin-bottom: 20px;
+}
+
+.admin-contact-inquiries table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-contact-inquiries th, .admin-contact-inquiries td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-contact-inquiries th {
+  background-color: #f8f8f8;
+  color: #333;
+  font-family: "Exo Bold";
+}
+
+.admin-contact-inquiries td {
+  color: #555;
+  font-family: "Exo";
+}
+
+@media screen and (max-width: 768px) {
+  .admin-contact-inquiries th, .admin-contact-inquiries td {
+      font-size: 14px;
+  }
+}

@@ -16,7 +16,6 @@ try {
 
     if ($stmt->rowCount() > 0) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo "<img src='" . htmlspecialchars($row["image_url"]) . "' class='landing-image-single' alt='" . htmlspecialchars($row["name"]) . "' />";
         echo "<div class='products-text-image'>";
         echo "<div class='text'>";
         echo "<h1 class='project-header'>" . htmlspecialchars($row["name"]) . "</h1>";

@@ -9,22 +9,15 @@
     <div class="footer-wrap">
       <div class="footer-section">
         <h4 href="#">Products</h4>
-        <a href="#" class="footer-link">All Products</a>
-        <a href="#" class="footer-link">Tents</a>
+        <a href="products.php" class="footer-link">All Products</a>
       </div>
       <div class="footer-section">
         <h4 href="#">Company</h4>
-        <a href="#" class="footer-link">About us</a>
-        <a href="#" class="footer-link">Certified Quality</a>
-      </div>
-      <div class="footer-section">
-        <h4 href="">Services</h4>
-        <a href="#" class="footer-link">Gallery</a>
-        <a href="#" class="footer-link">Catalogue</a>
+        <a href="aboutus.php" class="footer-link">About us</a>
       </div>
       <div class="footer-section">
         <h4 href="#">Other</h4>
-        <a href="#" class="footer-link">Blogs</a>
+        <a href="blogs.php" class="footer-link">Blogs</a>
         <a href="#" class="footer-link">Contact Us</a>
       </div>
       <p class="copyright">
