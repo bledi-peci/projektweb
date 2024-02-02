@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Exo";
-  src: url("./assets/fonts/Exo2-Regular.ttf");
+  src: url("../fonts/Exo2-Regular.ttf");
 }
 @font-face {
   font-family: "Exo Light";
-  src: url("./assets/fonts/Exo2-Light.ttf");
+  src: url("../fonts/Exo2-Light.ttf");
 }
 @font-face {
   font-family: "Exo Bold";
-  src: url("./assets/fonts/Exo2-Bold.ttf");
+  src: url("../fonts/Exo2-Bold.ttf");
 }
 @font-face {
   font-family: "Exo Medium";
-  src: url("./assets/fonts/Exo2-Medium.ttf");
+  src: url("../fonts/Exo2-Medium.ttf");
 }
 body,
 * {
